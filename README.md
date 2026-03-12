@@ -1,4 +1,5 @@
 # 键盘车神教圈速榜
+<img width="2450" height="1447" alt="image" src="https://github.com/user-attachments/assets/0f3397f2-9cae-4f17-94b5-c2f7fd40b9a0" />
 
 fix:解决了跨域请求资源的问题
 现在可以不部署服务即可本地预览数据
