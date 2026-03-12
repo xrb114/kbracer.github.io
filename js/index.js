@@ -29,34 +29,42 @@ $(function () {
     sec < 10 ? (sec = "0" + sec) : null;
     return `${min}:${sec}.${timeArr[1]}`;
   };
-  //获取json数据
-  $.ajax({
-    url: "./goldport.json?v=20240306",
-    // async: false,
-    success: function (res) {
-      console.log('goldport',res);
-      goldData = res;
-      setTableGold(goldData);
-    },
-  });
-  $.ajax({
-    url: "./speed.json?v=20240226",
-    // async: false,
-    success: function (res) {
-      console.log('ruisi',res);
-      jsonData = res;
-      setTable(jsonData);
-    },
-  });
-  $.ajax({
-    url: "./bigV.json?v=20240226",
-    // async: false,
-    success: function (res) {
-      console.log('bigV',res);
-      bigVData = res;
-      setTableBigV(bigVData);
-    },
-  });
+  // 获取数据：file:// 下使用预加载 JS，http(s) 下读取 JSON，兼容静态服务器和本地双击打开。
+  if (window.location.protocol === "file:") {
+    var localData = window.__KBRACER_LOCAL_DATA__ || {};
+    goldData = localData.goldport || [];
+    jsonData = localData.speed || [];
+    bigVData = localData.bigV || [];
+
+    setTableGold(goldData);
+    setTable(jsonData);
+    setTableBigV(bigVData);
+  } else {
+    $.ajax({
+      url: "./goldport.json?v=20240306",
+      success: function (res) {
+        console.log('goldport',res);
+        goldData = res;
+        setTableGold(goldData);
+      },
+    });
+    $.ajax({
+      url: "./speed.json?v=20240226",
+      success: function (res) {
+        console.log('ruisi',res);
+        jsonData = res;
+        setTable(jsonData);
+      },
+    });
+    $.ajax({
+      url: "./bigV.json?v=20240226",
+      success: function (res) {
+        console.log('bigV',res);
+        bigVData = res;
+        setTableBigV(bigVData);
+      },
+    });
+  }
   // setTable(jsonData);
   // setTableGold(goldData);
 
