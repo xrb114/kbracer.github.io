@@ -3,7 +3,7 @@
 ### DEMO
 
 [键盘车神教圈速榜](http://speed.bytegeek.icu/)
-<img width="2450" height="1447" alt="image" src="https://github.com/user-attachments/assets/0f3397f2-9cae-4f17-94b5-c2f7fd40b9a0" />
+![1773718169085](images/README/1773718169085.png)
 
 2026.3.12
 fix:解决了跨域请求资源的问题
