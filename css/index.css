@@ -239,7 +239,7 @@ footer {
 #tb_results3 th.sort-desc::after {
 	content: "↓";
 	opacity: 1;
-}
+}	
 
 #tb_results .ranking,
 #tb_results .limit,
